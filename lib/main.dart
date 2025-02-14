@@ -142,7 +142,7 @@ class GeneratorPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(20), // Bordes redondeados
               image: DecorationImage(
                 image: AssetImage('assets/image_tareas.webp'),
-                fit: BoxFit.cover, // Ajusta la imagen
+                fit: BoxFit.cover, // Ajusta la imagen al contenedor
               ),
             ),
           ),

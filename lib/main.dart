@@ -34,7 +34,7 @@ class MyAppState extends ChangeNotifier {
 
   var tareas = <String>[];
 
-  void saveTarea() {
+  void saveTarea() { // Alamcena la tarea en la lista
     if (tareas.contains(currentText) || currentText.isEmpty) {
       tareas.remove(currentText);
       tareas.add(currentText);
@@ -44,30 +44,30 @@ class MyAppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void removeTarea(String text) {
+  void removeTarea(String text) { // Elimina la tarea de la lista
     tareas.remove(text);
     notifyListeners();
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatefulWidget { // Página principal
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  var selectedIndex = 0;
+  var selectedIndex = 0;  // Índice de la página seleccionada
 
   @override
   Widget build(BuildContext context) {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = GeneratorPage();
+        page = GeneratorPage(); // Página principal
         break;
       case 1:
-        page = TareasPage();
+        page = TareasPage(); // Página de tareas
         break;
       default:
         throw UnimplementedError('no widget para $selectedIndex');
@@ -90,14 +90,14 @@ class _MyHomePageState extends State<MyHomePage> {
           body: Row(
             children: [
               SafeArea(
-                child: NavigationRail(
+                child: NavigationRail( // Barra de navegación
                   extended: constraints.maxWidth >= 600,
                   destinations: [
-                    NavigationRailDestination(
+                    NavigationRailDestination(  // Destino página principal de la barra de navegación
                       icon: Icon(Icons.home),
                       label: Text('Home'),
                     ),
-                    NavigationRailDestination(
+                    NavigationRailDestination(  // Destino página de tareas de la barra de navegación
                       icon: Icon(Icons.task),
                       label: Text('Tareas'),
                     ),
@@ -110,8 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ),
               ),
-              Expanded(
-                child: Container(
+              Expanded(  
+                child: Container( // Contenedor de la página seleccionada
                   color: Theme.of(context).colorScheme.primaryContainer,
                   child: page,
                 ),
@@ -124,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class GeneratorPage extends StatelessWidget {
+class GeneratorPage extends StatelessWidget {  // Página principal
   final TextEditingController textController = TextEditingController();
 
   @override
@@ -181,7 +181,7 @@ class GeneratorPage extends StatelessWidget {
 }
 
 
-class TareasPage extends StatelessWidget {
+class TareasPage extends StatelessWidget {  // Página de tareas
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();

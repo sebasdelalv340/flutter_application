@@ -34,9 +34,10 @@ class MyAppState extends ChangeNotifier {
 
   var tareas = <String>[];
 
-  void toggleFavorite() {
+  void saveTarea() {
     if (tareas.contains(currentText) || currentText.isEmpty) {
       tareas.remove(currentText);
+      tareas.add(currentText);
     } else {
       tareas.add(currentText);
     }
@@ -131,7 +132,6 @@ class GeneratorPage extends StatelessWidget {
     var appState = context.watch<MyAppState>();
 
     return Center(
-      
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -166,7 +166,7 @@ class GeneratorPage extends StatelessWidget {
             children: [
               ElevatedButton.icon(
                 onPressed: () {
-                  appState.toggleFavorite();
+                  appState.saveTarea();
                   textController.clear();
                 },
                 icon: Icon(Icons.save),

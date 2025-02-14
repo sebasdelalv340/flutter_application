@@ -199,7 +199,7 @@ class TareasPage extends StatelessWidget {  // Página de tareas
           child: Text('Tienes ${appState.tareas.length} tareas:'),
         ),
         for (var text in appState.tareas)
-          ListTile(
+          ListTile(  // Lista de tareas
             leading: IconButton(
               icon: Icon(Icons.delete, color: Colors.red),
               onPressed: () {

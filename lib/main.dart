@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = GeneratorPage(); // Página principal
+        page = GeneratorPage(); // Página para guardar tareas
         break;
       case 1:
         page = TareasPage(); // Página de tareas
@@ -124,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class GeneratorPage extends StatelessWidget {  // Página principal
+class GeneratorPage extends StatelessWidget {  // Página para guardar tareas
   final TextEditingController textController = TextEditingController();
 
   @override
